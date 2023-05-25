@@ -26,10 +26,13 @@ h2 {
 .input-info input {
     height: 20px ;
     background-color: rgb(77, 77, 223);
-    border:  none;
+    border-color:  rgb(77, 77, 223);
     border-radius: 8px;
     margin: 10px;
     padding-left: 10px;
+}
+.input-info input:hover {
+    border-color:  rgb(127, 127, 233);
 }
 .botones {
     margin: 0 auto;
@@ -37,14 +40,16 @@ h2 {
     font-size: bold;
 }
 .botones button {
-    border:  none;
+    border-color:  rgb(77, 77, 223);
     background-color: rgb(77, 77, 223);
     height: 20px ;
     border-radius: 8px;
 }
-.botones button:active {
-    background-color: rgb(53, 53, 150);
+.botones button:hover {
+    color: white;
+    border-color: white;
 }
+
 .resultado-info {
     height: 100px;
     display: grid;
@@ -53,5 +58,4 @@ h2 {
     align-content: center;
     padding-left: 10px;
 }
-
 
