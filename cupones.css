@@ -7,7 +7,6 @@ body {
 
 section {
     width: 60%;
-    height: 500px;
     background: rgb(43,101,244);
     background: linear-gradient(0deg, rgba(43,101,244,1) 0%, rgba(159,112,246,1) 88%);
     margin: 20px auto;
@@ -16,14 +15,17 @@ section {
     justify-content: center;
     border-radius: 20px;
 }
+section div,button {
+    display: grid;
+}
 h2 {
     text-align: center;
 }
-.input-info {   
+.input-info, .input-cupon {   
     margin: 20px;
     text-align: center;
 }
-.input-info input {
+.input-info  input {
     height: 20px ;
     background-color: rgb(77, 77, 223);
     border-color:  rgb(77, 77, 223);
@@ -34,20 +36,24 @@ h2 {
 .input-info input:hover {
     border-color:  rgb(127, 127, 233);
 }
-.botones {
-    margin: 0 auto;
-    text-align: center;
-    font-size: bold;
-}
-.botones button {
-    border-color:  rgb(77, 77, 223);
-    background-color: rgb(77, 77, 223);
+.input-cupon  input {
     height: 20px ;
+    background-color: rgb(77, 77, 223);
+    border-color:  rgb(77, 77, 223);
     border-radius: 8px;
+    margin: 10px;
+    padding-left: 10px;
 }
-.botones button:hover {
-    color: white;
-    border-color: white;
+button {
+    height: 20px ;
+    width: 100px;
+    background-color: rgb(77, 77, 223);
+    border-color:  rgb(77, 77, 223);
+    border-radius: 8px;
+    margin: 10px;
+    padding-left: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    justify-self: center;
 }
 
 .resultado-info {
