@@ -1,41 +1,50 @@
-
-const btn1 = document.querySelector(".btn1")
-const btn2 = document.querySelector(".btn2")
-const btn3 = document.querySelector(".btn3")
-const btn4 = document.querySelector(".btn4")
+const precioOriginal = document.querySelector("#precio-original") 
+const ingresarCupon = document.querySelector("#cupon")
+const btnCalcular = document.querySelector("button")
 const pInfoDescuanto = document.querySelector(".parrafo-descuento")
 const pResultado = document.querySelector(".parrafo-precio-final")
-btn1.addEventListener("click", descuentoBtn1)
-btn2.addEventListener("click" , descuentoBtn2)
-btn3.addEventListener("click" , descuentoBtn3)
-btn4.addEventListener("click" , descuentoBtn4)
+btnCalcular.addEventListener("click", calcularDescuento)
 
-function descuentoBtn1 () {
-    const precioOriginal = document.querySelector("input")
-    const  precio = Number(precioOriginal.value)
-    const precioFinal = ((precio * (100 - 20))/ 100)
-    pInfoDescuanto.innerText = "Tu descuento es del 20%"
-    pResultado.innerText = "Total a pagar:  $  " + precioFinal 
-}
-function descuentoBtn2() {
-    const precioOriginal = document.querySelector("input")
-    const  precio = Number(precioOriginal.value)
-    const precioFinal = ((precio * (100 - 30))/ 100)
-    pInfoDescuanto.innerText = "Tu descuento es del 30%"
-    pResultado.innerText = "Total a pagar:  $  " + precioFinal 
-}
-function descuentoBtn3 () {
-    const precioOriginal = document.querySelector("input")
-    const  precio = Number(precioOriginal.value)
-    const precioFinal = ((precio * (100 - 15))/ 100)
-    pInfoDescuanto.innerText = "Tu descuento es del 15%"
-    pResultado.innerText = "Total a pagar:  $  " + precioFinal 
-}
-function descuentoBtn4 () {
-    const precioOriginal = document.querySelector("input")
-    const  precio = Number(precioOriginal.value)
-    const precioFinal = ((precio * (100 - 50))/ 100)
-    pInfoDescuanto.innerText = "Tu descuento es del 50%"
-    pResultado.innerText = "Total a pagar:  $  " + precioFinal 
-}
+const cupones = []
+cupones.push({
+    name : 'A11F' ,
+    descuento :  25
+})
+cupones.push({
+    name : 'VT13' ,
+    descuento :  15
+})
 
+function calcularDescuento () {
+    //Variables valores ingresados
+    const price = Number(precioOriginal.value)
+    const cupon = ingresarCupon.value;
+
+    //Validar si se ingresaron los datos o no
+    if (!price || !cupon) {
+        pResultado.innerText = "Ingrese los datos para poder realizar el descuento" 
+        return
+    }
+    
+    //Funcion que compara el cupon ingresado, con cupones guardados en el array
+    let  descuento;
+    function isCuponEnArray (cuponElemento) {
+        return cuponElemento.name == cupon;
+    }
+
+    //Con el metodo .find se recorre cada elemento del array con la funcion isCuponEnArray para encontrar al que coincide 
+    const cuponEnArray = cupones.find(isCuponEnArray);
+
+    //Condicion que agrega en la variable descuento, el descuento que corresponde a cada cupon, del que por nombre coincide con el q se ingreso en el input
+    if (cuponEnArray) {
+        descuento = cuponEnArray.descuento
+    } else {   //Si no se encuentra el cupon
+        pResultado.innerText = 'El cupon no es valido'
+        return
+    }
+
+    //Se aplica la logica para calcular el precio final 
+    const nuevoPrecio = (price * (100 - descuento)) / 100
+    pInfoDescuanto.innerText = "Tu descuento es del " + descuento + " %."
+    pResultado.innerText = "El nuevo precio con decuento es: $ " + nuevoPrecio
+}
