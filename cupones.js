@@ -27,6 +27,5 @@ function calculateDiscount () {
 }
 
 function addCupon(name, discount) {
-
     cupons.push({name, discount});
 }
