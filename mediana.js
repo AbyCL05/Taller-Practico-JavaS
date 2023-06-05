@@ -16,7 +16,10 @@ function pairOrOddList (arr) {
     }
 }
 
-function calculateMedian (arr) {
+function calculateMedian (array) {
+
+    const arr = array.sort((a,b)=>a-b)
+
     if (pairOrOddList(arr) == true) {
         const firstHalfArray = (arr.length / 2) -1
         const secondHalfArray = arr.length / 2
@@ -27,6 +30,9 @@ function calculateMedian (arr) {
         return medianArray = arr[halfOddArray]
     }
 }
+console.log(list1);
+console.log(list2)
+console.log(list3);;
 console.log( calculateMedian(list1));
 console.log( calculateMedian(list2));
 console.log( calculateMedian(list3));
