@@ -20,8 +20,7 @@
             const sortList = sortTwoDimensionalList(Object.entries(arrCount), 1)
              //Object.entries(arrCount), es el objeto arrCount, convertido en array, que ya esta siendo ordenado por la funcion sortTwoDimensionalList.
             
-            console.log(list)
-            console.log(sortList[sortList.length -1][0])
+            return sortList[sortList.length -1][0]
         }
         function sortTwoDimensionalList (arr, i) {  
             return arr.sort( (a, b) => a[i] - b[i])
