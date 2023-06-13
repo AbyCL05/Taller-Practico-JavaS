@@ -8,10 +8,10 @@ PlatziMath.findMedian = function  (array) {
 
     const arr = array.sort((a,b)=>a-b)
 
-    if (pairOrOddList(arr) == true) {
+    if (PlatziMath.pairOrOddList(arr) == true) {
         const firstHalfArray = (arr.length / 2) -1
         const secondHalfArray = arr.length / 2
-        return  findAverage([arr[firstHalfArray], arr[secondHalfArray]])
+        return  PlatziMath.findAverage([arr[firstHalfArray], arr[secondHalfArray]])
 
     } else {
         const halfOddArray =Math.floor(arr.length / 2)
@@ -33,8 +33,8 @@ PlatziMath.finfFad = function  (arr) {
 
 PlatziMath.pairOrOddList = function  (arr) {
     if (arr.length % 2 === 0) {
-        console.log('The number of elements in the array is even')
-        return
+        console.log('The number of elements in the array is pair')
+        return true
     } else {
         console.log('The number of elements in the array is odd');
     }
