@@ -1,3 +1,5 @@
+//Analisis Personal
+
 function findPerson (name) {
     return salarios.find(a => a.name == name)
 }
@@ -24,3 +26,22 @@ function personalSalaryProjection (name) {
 
     return projectionIncrase
 }
+
+//Analisis por Empresa 
+
+const companies = {}
+
+for (const person of salarios) {
+    for (const trabajo of person.trabajos) {
+        if(!companies[trabajo.empresa]) {
+            companies[trabajo.empresa] = {}
+        }
+
+        if(!companies[trabajo.empresa] [trabajo.year]) {
+            companies[trabajo.empresa] [trabajo.year] = []
+        }
+
+        companies[trabajo.empresa][trabajo.year].push(trabajo.salario)
+    }
+}
+console.log({companies});
