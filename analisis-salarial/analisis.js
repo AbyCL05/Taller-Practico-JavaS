@@ -45,3 +45,13 @@ for (const person of salarios) {
     }
 }
 console.log({companies});
+
+function averageCompanyPerYear (company, year) {
+    if(!companies[company]) {
+        console.warn('La empresa no existe');
+    } else if (!companies[company][year]) {
+        console.warn('La empresa no dio salarios ese año');
+    } else {
+        return PlatziMath.findMedian(companies[company] [year])
+    }
+}
