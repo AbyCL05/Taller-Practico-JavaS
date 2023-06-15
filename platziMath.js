@@ -33,10 +33,9 @@ PlatziMath.finfFad = function  (arr) {
 
 PlatziMath.pairOrOddList = function  (arr) {
     if (arr.length % 2 === 0) {
-        console.log('The number of elements in the array is pair')
         return true
     } else {
-        console.log('The number of elements in the array is odd');
+        return false
     }
 }
 
