@@ -55,3 +55,28 @@ function averageCompanyPerYear (company, year) {
         return PlatziMath.findMedian(companies[company] [year])
     }
 }
+
+function companyProjection (company) {
+    if (!companies[company]) {
+        console.warn('La empresa no existe');
+    } else {
+        const companyYear = Object.keys(companies[company])
+        const listMedianYears = companyYear.map((year) => {
+            return averageCompanyPerYear(company, year)
+        })
+
+        let growthPercentages = []
+        for (let i = 1; i < listMedianYears.length; i++) {
+            const growth = listMedianYears[i] - listMedianYears[i - 1] //
+            const growthPercentage = growth / listMedianYears[i - 1]
+
+            growthPercentages.push(growthPercentage)
+        }
+
+        const medianGrowthPercentages = PlatziMath.findMedian(growthPercentages)
+        const lastMedian = listMedianYears[listMedianYears.length - 1]
+        const aumento = lastMedian * medianGrowthPercentages 
+        const projection = lastMedian + aumento
+        return projection
+    }
+}
