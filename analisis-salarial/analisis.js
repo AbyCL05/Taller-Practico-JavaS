@@ -80,3 +80,21 @@ function companyProjection (company) {
         return projection
     }
 }
+
+//Mediana general y del Top 10
+
+function medianOverall () {
+    const listOfMedians = salarios.map(persona => medianForPeople(persona.name))
+    return PlatziMath.findMedian(listOfMedians) //Mediana general
+}
+
+function medianTop10 () {
+    const listOfMedians = salarios.map(persona => medianForPeople(persona.name))
+    const orderedMedians = PlatziMath.sortListAscending(listOfMedians)
+
+
+    const topQuantify = listOfMedians.length / 10
+    const limit = listOfMedians.length - topQuantify 
+    const top10 = orderedMedians.slice(limit, orderedMedians.length)
+    return PlatziMath.findMedian(top10) //Mediana del top(promedio)
+}
